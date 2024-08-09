@@ -15,11 +15,11 @@ jobs:
       - name: Install FTP-Deploy Action
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.ENV.FTP_HOST }}
-          username: ${{ secrets.ENV.FTP_USERNAME }}
-          password: ${{ secrets.ENV.FTP_PASSWORD }}
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist
-          server-dir: ${{ secrets.ENV.FTP_PATH }}
+          server-dir: ${{ secrets.FTP_PATH }}
           exclude: |
             .git*
             .github/
