@@ -19,6 +19,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+      - name: Clean up
+        run: npx rimraf ./dist/
+
 
       - name: Run build
         run: npm run build
