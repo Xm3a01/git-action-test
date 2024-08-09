@@ -1,0 +1,26 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install FTP-Deploy Action
+        uses: SamKirkland/FTP-Deploy-Action@4.5.0
+        with:
+          server: ${{ secrets.ENV.FTP_HOST }}
+          username: ${{ secrets.ENV.FTP_USERNAME }}
+          password: ${{ secrets.ENV.FTP_PASSWORD }}
+          local-dir: ./dist
+          server-dir: ${{ secrets.ENV.FTP_PATH }}
+          exclude: |
+            .git*
+            .github/
+            README.md
