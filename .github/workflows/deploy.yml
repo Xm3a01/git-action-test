@@ -20,11 +20,10 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Clean up
-        run: npx rimraf ./dist/
-
+        run: rm -rf ./dist
 
       - name: Run build
-        run: npm run build
+        run: npx tsc
 
       - name: Install FTP-Deploy Action
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

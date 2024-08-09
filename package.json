@@ -5,7 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "dev": "nodemon --watch server.ts",
-    "build": "npx tsc"
+    "build": "rimraf dist && npx tsc"
   },
   "author": "",
   "license": "ISC",
